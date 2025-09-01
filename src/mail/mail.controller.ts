@@ -10,7 +10,7 @@ export class MailController {
     const result = await this.mailService.sendMail(
       ['weeraphat.main@gmail.com', 'devin60s2000@gmail.com'],
       'subject',
-      ['weeraphat@kkumail.com'],
+      ['weeraphat@kkumail.com', 'siwanon555@gmail.com'],
     );
 
     return { message: 'Email sent successfully', result };

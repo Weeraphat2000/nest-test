@@ -70,6 +70,10 @@ export class MailService {
           filename: 'image.JPG',
           content: fs.readFileSync('src/mail/image/IMG_6176.JPG'),
         },
+        {
+          filename: 'image2.JPG',
+          content: fs.readFileSync('src/mail/image/IMG_6215.JPG'),
+        },
       ],
     });
 
