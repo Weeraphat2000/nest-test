@@ -6,9 +6,10 @@ import { ListModule } from './list/list.module';
 import { TodolistModule } from './todolist/todolist.module';
 import { UserModule } from './user/user.module';
 import { PrometheusModule } from './prometheus/prometheus.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
-  imports: [TodoModule, ListModule, TodolistModule, UserModule, PrometheusModule],
+  imports: [TodoModule, ListModule, TodolistModule, UserModule, PrometheusModule, MailModule],
   controllers: [AppController],
   providers: [AppService],
 })
