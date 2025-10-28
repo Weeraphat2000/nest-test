@@ -23,4 +23,14 @@ export class AppController {
   getFunctionalProgramming(@Param('math') math: string): number {
     return this.functionalProgrammingService.get(+math);
   }
+
+  @Get('/testFilter')
+  testFilter() {
+    return this.functionalProgrammingService.testFilter();
+  }
+
+  @Get('/testMap')
+  testMap() {
+    return this.functionalProgrammingService.testMap();
+  }
 }

@@ -77,4 +77,50 @@ export class FunctionalProgrammingServiceMath {
 
     return pipeline(math);
   }
+
+  filter = <T>(predicate: (x: T) => boolean): ((input: T[]) => T[]) => {
+    return (input) => {
+      const result: T[] = [];
+      for (const i of input) {
+        if (predicate(i)) {
+          result.push(i);
+        }
+      }
+      return result;
+    };
+  };
+
+  testFilter() {
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const filterEven = this.filter((x: number) => x % 2 === 0);
+    const filterOdd = this.filter<number>((x) => !this.isEven(x));
+
+    const oddOrEven = ['odd', 'even', 'even', 'odd', 'even', 'odd'];
+    const filterOddString = this.filter((x) => x === 'odd');
+    const filterEvenString = this.filter<string>((x) => x === 'even');
+
+    return {
+      evenNumbers: filterEven(numbers),
+      oddNumbers: filterOdd(numbers),
+
+      oddStrings: filterOddString(oddOrEven),
+      evenStrings: filterEvenString(oddOrEven),
+    };
+  }
+
+  map = <T, U>(mapper: (x: T) => U): ((input: T[]) => U[]) => {
+    return (input) => {
+      const result: U[] = [];
+      for (const i of input) {
+        result.push(mapper(i));
+      }
+      return result;
+    };
+  };
+
+  testMap() {
+    const numbers = [1, 2, 3, 4, 5];
+    const multiplyByTwenty = this.map(this.multiplyBy(20));
+    return multiplyByTwenty(numbers);
+  }
 }
